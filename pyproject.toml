@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "uptimerobot4discord"
+dynamic = ["version"]
+description = "Scrape UptimeRobot public status pages and send real-time UP/DOWN alerts to Discord via webhooks."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "Jean Serrano", email = "165511905+ourpxi@users.noreply.github.com" },
+]
+keywords = ["uptimerobot", "discord", "monitoring", "status-page", "alerts", "webhook"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: System Administrators",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: System :: Monitoring",
+    "Topic :: Communications :: Chat :: Discord",
+]
+dependencies = [
+    "requests>=2.31.0",
+    "beautifulsoup4>=4.12.0",
+    "lxml>=5.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/ourpxi/UptimeRobot4Discord"
+Repository = "https://github.com/ourpxi/UptimeRobot4Discord"
+"Bug Tracker" = "https://github.com/ourpxi/UptimeRobot4Discord/issues"
+Changelog = "https://github.com/ourpxi/UptimeRobot4Discord/releases"
+
+[project.scripts]
+uptimerobot4discord = "uptimerobot4discord.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.setuptools.dynamic]
+version = { attr = "uptimerobot4discord.__version__" }
